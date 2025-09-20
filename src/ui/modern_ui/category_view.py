@@ -1,8 +1,8 @@
 import customtkinter as ctk
 from .components import ModernCard, ModernButton, ModernHeader, ModernGrid
 from .theme import ModernTheme
-from data import get_category, get_applications_for_category, launch_application
-from icon_manager import IconManager
+from ...core.data import get_category, get_applications_for_category, launch_application
+from ...core.icon_manager import IconManager
 from PIL import Image
 import os
 

@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from .theme import ModernTheme
 from .components import ModernButton
-from data import add_category, add_application
+from ...core.data import add_category, add_application
 from tkinter import filedialog, messagebox
 import os
 

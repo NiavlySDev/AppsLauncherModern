@@ -1,6 +1,17 @@
 @echo off
-echo Démarrage du Lanceur d'Applications...
+title AppsLauncher Modern
+
+echo 🚀 Lancement d'AppsLauncher Modern...
 echo.
+
 cd /d "%~dp0"
-C:/Users/SysyM/AppData/Local/Microsoft/WindowsApps/python3.13.exe main.py
-pause
+
+python main.py
+
+if %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo ❌ Erreur lors du lancement
+    echo 💡 Lancez install.bat pour installer les dépendances
+    echo.
+    pause
+)

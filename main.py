@@ -1,19 +1,30 @@
-import tkinter as tk
-from theme import set_dark_theme
-from ui.main_view import MainView
-from data import get_categories, get_applications, load_data
+#!/usr/bin/env python3
+"""
+AppsLauncher Modern - Point d'entrée principal
+Lanceur d'applications moderne avec interface CustomTkinter
+"""
 
-def main():
-    # Charger les données sauvegardées
-    load_data()
-    
-    root = tk.Tk()
-    root.title("Lanceur d'applications")
-    root.geometry("900x600")
-    set_dark_theme(root)
-    app = MainView(root)
-    app.pack(fill="both", expand=True)
-    root.mainloop()
+import sys
+import os
+
+# Ajouter le répertoire current au path pour les imports
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, current_dir)
 
 if __name__ == "__main__":
-    main()
+    try:
+        # Import du lanceur principal
+        from launcher import SimpleLauncherApp
+        
+        # Lancement de l'application
+        app = SimpleLauncherApp()
+        app.mainloop()
+        
+    except ImportError as e:
+        print(f"❌ Erreur d'importation: {e}")
+        print("💡 Assurez-vous que toutes les dépendances sont installées:")
+        print("   pip install customtkinter pillow requests beautifulsoup4")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ Erreur lors du lancement: {e}")
+        sys.exit(1)

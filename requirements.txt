@@ -1,0 +1,14 @@
+# Interface utilisateur moderne
+customtkinter>=5.2.0
+
+# Traitement d'images
+Pillow>=10.0.0
+
+# Requêtes HTTP pour téléchargement d'icônes
+requests>=2.31.0
+
+# Parsing HTML pour extraction d'icônes
+beautifulsoup4>=4.12.0
+
+# Intégration Windows pour raccourcis (Windows uniquement)
+pywin32>=306; sys_platform == "win32"

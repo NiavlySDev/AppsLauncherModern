@@ -34,47 +34,57 @@ Un lanceur d'applications moderne avec interface CustomTkinter, gestionnaire d'i
 
 ## 🚀 Installation & Lancement
 
-### Prérequis
+### Installation Automatique (Windows)
 ```bash
-pip install customtkinter pillow requests beautifulsoup4 pywin32
+# Installation des dépendances
+install.bat
+
+# Lancement de l'application
+start.bat
 ```
 
-### Lancement Rapide
+### Installation Manuelle
 ```bash
-# Interface moderne (recommandé)
-python simple_modern.py
+# Installer les dépendances Python
+pip install -r requirements.txt
 
-# Avec splash screen
-python modern_launcher.py
-
-# Script Windows automatique
-start_modern.bat
-
-# Interface classique (toujours disponible)
+# Lancer l'application
 python main.py
+
+# Ou avec splash screen
+python launcher_with_splash.py
 ```
 
 ## 📁 Structure du Projet
 
 ```
 AppsLauncherModern/
-├── 📁 modern_ui/           # 🆕 Interface moderne CustomTkinter
-│   ├── theme.py           # Configuration couleurs et styles
-│   ├── components.py      # Composants réutilisables (cartes, boutons)
-│   ├── main_view.py       # Vue principale avec grille de catégories
-│   ├── category_view.py   # Vue des applications par catégorie
-│   ├── dialogs.py         # Dialogues modernes d'ajout
-│   └── effects.py         # Animations et effets visuels
-├── 📁 ui/                 # Interface classique (conservée)
-├── 📁 icons/              # Cache des icônes téléchargées
-├── 📁 template/           # Captures d'écran de référence
-├── modern_launcher.py     # 🆕 Lanceur avec splash screen
-├── simple_modern.py       # 🆕 Lanceur moderne simplifié
-├── start_modern.bat       # 🆕 Script Windows automatique
-├── icon_manager.py        # Gestionnaire d'icônes intelligent
-├── icon_api.py           # APIs d'icônes en ligne
-├── data.py               # Gestion et persistance des données
-└── main.py               # Interface classique Tkinter
+├── 📁 src/                    # 🧠 Code source principal
+│   ├── 📁 core/              # ⚙️ Composants principaux
+│   │   ├── data.py           # Gestion données et persistance
+│   │   ├── icon_manager.py   # Gestionnaire d'icônes intelligent
+│   │   └── config.py         # Configuration application
+│   ├── 📁 ui/                # 🎨 Interface utilisateur
+│   │   └── 📁 modern_ui/     # CustomTkinter moderne
+│   │       ├── main_view.py      # Vue principale avec grille
+│   │       ├── category_view.py  # Vue catégories
+│   │       ├── components.py     # Composants réutilisables
+│   │       ├── dialogs.py        # Dialogues modernes
+│   │       ├── theme.py          # Thèmes et couleurs
+│   │       └── effects.py        # Animations et effets
+│   └── 📁 utils/             # 🔧 Utilitaires
+│       └── icon_api.py       # APIs d'icônes en ligne
+├── 📁 tests/                 # 🧪 Tests et validation
+├── 📁 scripts/               # 📜 Scripts utilitaires
+├── 📁 docs/                  # 📚 Documentation
+│   └── 📁 template/          # Captures d'écran référence
+├── 📁 icons/                 # � Cache icônes téléchargées
+├── main.py                   # 🚀 Point d'entrée principal
+├── launcher.py               # � Lanceur interface moderne
+├── launcher_with_splash.py   # ✨ Lanceur avec splash screen
+├── start.bat                 # 🖥️ Script Windows lancement
+├── install.bat               # 📦 Script Windows installation
+└── requirements.txt          # 📋 Dépendances Python
 ```
 
 ## 🎯 Nouveautés v2.0

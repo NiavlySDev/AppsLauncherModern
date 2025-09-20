@@ -52,7 +52,7 @@ class IconManager:
         """Recherche une icône de haute qualité en ligne"""
         try:
             # Utiliser notre nouvelle API améliorée
-            from icon_api import icon_api
+            from ..utils.icon_api import icon_api
             return icon_api.find_best_icon(app_name)
             
         except Exception as e:

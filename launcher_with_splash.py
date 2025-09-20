@@ -8,10 +8,10 @@ import time
 # Ajouter le répertoire parent au path pour les imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from modern_ui.main_view import ModernMainView
-from modern_ui.theme import ModernTheme
-from modern_ui.effects import LoadingSpinner
-from data import load_data
+from src.ui.modern_ui.main_view import ModernMainView
+from src.ui.modern_ui.theme import ModernTheme
+from src.ui.modern_ui.effects import LoadingSpinner
+from src.core.data import load_data
 
 class SplashScreen(ctk.CTkToplevel):
     """Écran de chargement moderne"""

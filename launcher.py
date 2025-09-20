@@ -5,18 +5,18 @@ import os
 # Ajouter le répertoire parent au path pour les imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from modern_ui.main_view import ModernMainView
-from modern_ui.theme import ModernTheme
-from data import load_data
+from src.ui.modern_ui.main_view import ModernMainView
+from src.ui.modern_ui.theme import ModernTheme
+from src.core.data import load_data
 
-class ModernLauncherApp(ctk.CTk):
-    """Application principale avec interface moderne"""
+class SimpleLauncherApp(ctk.CTk):
+    """Application de lanceur moderne simple"""
     
     def __init__(self):
         super().__init__()
         
         # Configuration de la fenêtre
-        self.title("Lanceur d'Applications - Interface Moderne")
+        self.title("🚀 Lanceur d'Applications - Interface Moderne")
         self.geometry("1200x800")
         self.minsize(800, 600)
         
@@ -25,6 +25,7 @@ class ModernLauncherApp(ctk.CTk):
         ctk.set_default_color_theme("blue")
         
         # Chargement des données
+        print("📂 Chargement des données...")
         load_data()
         
         # Configuration de l'interface
@@ -32,6 +33,8 @@ class ModernLauncherApp(ctk.CTk):
         
         # Centre la fenêtre
         self.center_window()
+        
+        print("✅ Application lancée avec succès !")
     
     def setup_ui(self):
         """Configure l'interface utilisateur principale"""
@@ -53,22 +56,27 @@ class ModernLauncherApp(ctk.CTk):
 def main():
     """Fonction principale"""
     try:
+        print("🎨 Lancement de l'interface moderne...")
+        print("=" * 50)
+        
         # Vérification des dépendances
         import customtkinter
         from PIL import Image
-        print("✅ Toutes les dépendances sont installées")
+        print("✅ CustomTkinter disponible")
+        print("✅ Pillow disponible")
         
         # Création et lancement de l'application
-        app = ModernLauncherApp()
-        print("🚀 Lancement de l'interface moderne...")
+        app = SimpleLauncherApp()
         app.mainloop()
         
     except ImportError as e:
         print(f"❌ Erreur d'import : {e}")
-        print("Installez les dépendances avec : pip install customtkinter pillow")
+        print("💡 Installez les dépendances avec : pip install customtkinter pillow")
         input("Appuyez sur Entrée pour fermer...")
     except Exception as e:
         print(f"❌ Erreur : {e}")
+        import traceback
+        traceback.print_exc()
         input("Appuyez sur Entrée pour fermer...")
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import customtkinter as ctk
 from .components import ModernCard, ModernButton, ModernHeader, ModernGrid
 from .theme import ModernTheme
 from .effects import StatusBar, LoadingSpinner
-from data import get_categories
+from ...core.data import get_categories
 
 class ModernMainView(ctk.CTkFrame):
     """Vue principale moderne avec grille de catégories"""
