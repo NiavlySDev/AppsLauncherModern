@@ -1,0 +1,253 @@
+name: 🚀 Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: 🖥️ Build Windows
+    runs-on: windows-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 📦 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: 🎨 Create icons
+      run: python scripts/create_icons.py
+      
+    - name: 🔨 Build executable
+      run: pyinstaller build/windows/app.spec --clean --noconfirm
+      
+    - name: 📁 Prepare distribution
+      run: |
+        if (Test-Path "build/windows/dist") { Remove-Item -Recurse -Force "build/windows/dist" }
+        Move-Item "dist" "build/windows/dist"
+        
+    - name: 🏗️ Setup NSIS
+      run: |
+        Invoke-WebRequest -Uri "https://nsis.sourceforge.io/mediawiki/images/4/4a/Nsis-3.08-setup.exe" -OutFile "nsis-setup.exe"
+        Start-Process -Wait -FilePath "nsis-setup.exe" -ArgumentList "/S"
+        
+    - name: 📦 Create installer
+      run: |
+        cd build/windows
+        & "C:\Program Files (x86)\NSIS\makensis.exe" installer.nsi
+        
+    - name: 📤 Upload Windows artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-installer
+        path: build/windows/AppsLauncherModern-Setup-*.exe
+
+  build-linux:
+    name: 🐧 Build Linux
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: 📦 Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev
+        
+    - name: 📦 Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: 🎨 Create icons
+      run: python scripts/create_icons.py
+      
+    - name: 🔨 Build executable
+      run: pyinstaller build/linux/app.spec --clean --noconfirm
+      
+    - name: 📁 Prepare distribution
+      run: |
+        if [ -d "build/linux/dist" ]; then rm -rf "build/linux/dist"; fi
+        mv "dist" "build/linux/dist"
+        
+    - name: 🔧 Make build script executable
+      run: chmod +x build/linux/build_linux.sh
+      
+    - name: 📦 Create packages
+      run: |
+        cd build/linux
+        
+        # Créer la structure AppImage
+        APPDIR="appimage/AppsLauncherModern.AppDir"
+        mkdir -p "$APPDIR"/{usr/bin,usr/share/applications,usr/share/icons/hicolor/256x256/apps}
+        
+        # Copier l'exécutable
+        cp -r dist/AppsLauncherModern/* "$APPDIR/usr/bin/"
+        
+        # Copier les fichiers desktop et icônes
+        cp appslauncher-modern.desktop "$APPDIR/"
+        cp appslauncher-modern.desktop "$APPDIR/usr/share/applications/"
+        cp ../../assets/app_icon.png "$APPDIR/usr/share/icons/hicolor/256x256/apps/appslauncher-modern.png"
+        cp ../../assets/app_icon.png "$APPDIR/appslauncher-modern.png"
+        
+        # Créer AppRun
+        cat > "$APPDIR/AppRun" << 'EOF'
+        #!/bin/bash
+        HERE="$(dirname "$(readlink -f "${0}")")"
+        export PATH="${HERE}/usr/bin:${PATH}"
+        export LD_LIBRARY_PATH="${HERE}/usr/lib:${LD_LIBRARY_PATH}"
+        exec "${HERE}/usr/bin/AppsLauncherModern" "$@"
+        EOF
+        chmod +x "$APPDIR/AppRun"
+        
+        # Télécharger et utiliser appimagetool
+        wget -O appimagetool-x86_64.AppImage \
+          "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+        chmod +x appimagetool-x86_64.AppImage
+        
+        # Créer l'AppImage
+        ./appimagetool-x86_64.AppImage appimage/AppsLauncherModern.AppDir \
+          AppsLauncherModern-v2.1.0-x86_64.AppImage --no-appstream || true
+          
+        # Créer le package .deb
+        DEBDIR="deb/appslauncher-modern_2.1.0_amd64"
+        mkdir -p "$DEBDIR"/{DEBIAN,usr/bin,usr/share/applications,usr/share/icons/hicolor/256x256/apps,usr/share/doc/appslauncher-modern}
+        
+        # Copier l'exécutable
+        cp -r dist/AppsLauncherModern/* "$DEBDIR/usr/bin/"
+        
+        # Copier les fichiers desktop et icônes
+        cp appslauncher-modern.desktop "$DEBDIR/usr/share/applications/"
+        cp ../../assets/app_icon.png "$DEBDIR/usr/share/icons/hicolor/256x256/apps/appslauncher-modern.png"
+        
+        # Copier la documentation
+        cp ../../README.md "$DEBDIR/usr/share/doc/appslauncher-modern/"
+        cp ../../LICENSE "$DEBDIR/usr/share/doc/appslauncher-modern/copyright"
+        
+        # Créer le fichier de contrôle
+        cat > "$DEBDIR/DEBIAN/control" << EOF
+        Package: appslauncher-modern
+        Version: 2.1.0
+        Section: utils
+        Priority: optional
+        Architecture: amd64
+        Depends: libc6, libgtk-3-0
+        Maintainer: NiavlySDev <niavlys.dev@gmail.com>
+        Description: Lanceur d'applications moderne
+         AppsLauncher Modern est un lanceur d'applications avec une interface
+         moderne construite avec CustomTkinter.
+        EOF
+        
+        # Construire le package .deb
+        dpkg-deb --build appslauncher-modern_2.1.0_amd64
+        
+    - name: 📤 Upload Linux artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: linux-packages
+        path: |
+          build/linux/AppsLauncherModern-v2.1.0-x86_64.AppImage
+          build/linux/deb/appslauncher-modern_2.1.0_amd64.deb
+
+  create-release:
+    name: 🎉 Create Release
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 📥 Download Windows artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: windows-installer
+        path: ./artifacts/windows/
+        
+    - name: 📥 Download Linux artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: linux-packages
+        path: ./artifacts/linux/
+        
+    - name: 📋 Get release info
+      id: release_info
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "prerelease=false" >> $GITHUB_OUTPUT
+        
+    - name: 📝 Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: "AppsLauncher Modern ${{ steps.release_info.outputs.version }}"
+        body: |
+          # 🚀 AppsLauncher Modern ${{ steps.release_info.outputs.version }}
+          
+          ## 📦 Téléchargements
+          
+          ### 🖥️ Windows
+          - **Installateur automatique**: `AppsLauncherModern-Setup-v*.exe`
+            - Installation dans Program Files
+            - Création automatique du raccourci bureau
+            - Ajout au menu démarrer
+            - Désinstallateur inclus
+          
+          ### 🐧 Linux
+          - **AppImage portable**: `AppsLauncherModern-v*-x86_64.AppImage`
+            - Aucune installation requise
+            - Compatible toutes distributions
+            - `chmod +x` puis exécuter
+            
+          - **Package Debian/Ubuntu**: `appslauncher-modern_*_amd64.deb`
+            - Installation système: `sudo dpkg -i package.deb`
+            - Intégration menu applications
+            - Désinstallation: `sudo apt remove appslauncher-modern`
+          
+          ## ✨ Fonctionnalités
+          - Interface moderne CustomTkinter
+          - Détection automatique Steam
+          - Icônes haute qualité automatiques
+          - Support raccourcis système
+          - Thème sombre/clair
+          - Grille responsive
+          
+          ## 💡 Installation
+          
+          **Windows**: Téléchargez et exécutez l'installateur `.exe`
+          
+          **Linux**:
+          ```bash
+          # AppImage (recommandé)
+          chmod +x AppsLauncherModern-v*-x86_64.AppImage
+          ./AppsLauncherModern-v*-x86_64.AppImage
+          
+          # Package Debian/Ubuntu
+          sudo dpkg -i appslauncher-modern_*_amd64.deb
+          ```
+          
+          Consultez le [README](https://github.com/NiavlySDev/AppsLauncherModern#readme) pour plus d'informations.
+        files: |
+          ./artifacts/windows/*
+          ./artifacts/linux/*
+        prerelease: ${{ steps.release_info.outputs.prerelease }}
+        token: ${{ secrets.GITHUB_TOKEN }}

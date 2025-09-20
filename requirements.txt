@@ -12,3 +12,6 @@ beautifulsoup4>=4.12.0
 
 # Intégration Windows pour raccourcis (Windows uniquement)
 pywin32>=306; sys_platform == "win32"
+
+# Build et packaging (optionnel pour développeurs)
+pyinstaller>=6.0.0; extra == "build"

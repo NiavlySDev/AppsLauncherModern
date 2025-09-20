@@ -34,25 +34,60 @@ Un lanceur d'applications moderne avec interface CustomTkinter, gestionnaire d'i
 
 ## 🚀 Installation & Lancement
 
-### Installation Automatique (Windows)
-```bash
-# Installation des dépendances
-install.bat
+### 📦 Installation Automatique (Recommandée)
 
-# Lancement de l'application
+#### 🖥️ Windows
+1. **Téléchargez l'installateur** depuis les [Releases GitHub](https://github.com/NiavlySDev/AppsLauncherModern/releases)
+2. **Exécutez** `AppsLauncherModern-Setup-v*.exe`
+3. **Suivez l'assistant** d'installation
+4. **Lancez** depuis le raccourci bureau ou le menu démarrer
+
+#### 🐧 Linux
+
+**Option 1: AppImage (Portable)**
+```bash
+# Télécharger depuis GitHub Releases
+wget https://github.com/NiavlySDev/AppsLauncherModern/releases/latest/download/AppsLauncherModern-v*-x86_64.AppImage
+
+# Rendre exécutable et lancer
+chmod +x AppsLauncherModern-v*-x86_64.AppImage
+./AppsLauncherModern-v*-x86_64.AppImage
+```
+
+**Option 2: Package Debian/Ubuntu**
+```bash
+# Télécharger le package .deb
+wget https://github.com/NiavlySDev/AppsLauncherModern/releases/latest/download/appslauncher-modern_*_amd64.deb
+
+# Installer
+sudo dpkg -i appslauncher-modern_*_amd64.deb
+
+# Lancer depuis le menu applications ou:
+appslauncher-modern
+```
+
+### 🛠️ Installation Développeur (Source)
+
+#### Installation Automatique Windows
+```bash
+# Cloner et installer
+git clone https://github.com/NiavlySDev/AppsLauncherModern.git
+cd AppsLauncherModern
+install.bat
 start.bat
 ```
 
-### Installation Manuelle
+#### Installation Manuelle
 ```bash
+# Cloner le repository
+git clone https://github.com/NiavlySDev/AppsLauncherModern.git
+cd AppsLauncherModern
+
 # Installer les dépendances Python
 pip install -r requirements.txt
 
 # Lancer l'application
 python main.py
-
-# Ou avec splash screen
-python launcher_with_splash.py
 ```
 
 ## 📁 Structure du Projet
