@@ -1,0 +1,270 @@
+{
+  "categories": {
+    "0ba836cb-9e4b-457b-833c-3be076fba965": {
+      "name": "Bureau",
+      "icon": "🖥️",
+      "color": "#4CAF50",
+      "parent": null
+    },
+    "f1ccd3bf-b2ea-402f-ae1c-5c30e7148de6": {
+      "name": "Outils",
+      "icon": "🔧",
+      "color": "#FF9800",
+      "parent": null
+    },
+    "714541bc-f3b9-4015-b584-fd83435ca224": {
+      "name": "Jeux Steam",
+      "icon": "🎮",
+      "color": "#1B2838",
+      "parent": null
+    }
+  },
+  "applications": {
+    "0446fb1f-c3fa-4614-b67c-7af7f8235899": {
+      "name": "4KVideoDownloader",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\4KVideoDownloader.lnk"
+    },
+    "c7593fb8-f55c-408f-9bbe-3a111d6d68b4": {
+      "name": "Blockbench",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Blockbench.lnk"
+    },
+    "a6729acd-3362-4d0d-933b-96294c26f59b": {
+      "name": "Bureau à distance Google Chrome",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Bureau à distance Google Chrome.lnk"
+    },
+    "9a5b875e-8334-4487-beb1-eb18f7d5c7b2": {
+      "name": "Cheat Engine",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Cheat Engine.lnk"
+    },
+    "69bfd6ca-b3cb-4da5-a7e1-f974326b00a5": {
+      "name": "DataGrip",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\DataGrip.lnk"
+    },
+    "63b08648-b2cc-481f-b821-7a468f79d376": {
+      "name": "DataSpell",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\DataSpell.lnk"
+    },
+    "54d065a6-7740-4c79-9d7e-1f342735a4f6": {
+      "name": "Discord",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Discord.lnk"
+    },
+    "7a759979-62ea-468d-a12d-4e535f90a334": {
+      "name": "DroidCamApp",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\DroidCamApp.lnk"
+    },
+    "ac2215eb-5870-44f3-b57d-4a6f01b3ff16": {
+      "name": "Freebox",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Freebox.lnk"
+    },
+    "ff94058f-eab8-404b-b22d-79839331da64": {
+      "name": "GitHub Desktop",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\GitHub Desktop.lnk"
+    },
+    "570f95c4-9af3-4be8-8605-44dd31839e32": {
+      "name": "IntelliJ IDEA Ultimate",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\IntelliJ IDEA Ultimate.lnk"
+    },
+    "41b66509-0747-49ee-9503-6beb9ede9ec3": {
+      "name": "JetBrains Toolbox",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\JetBrains Toolbox.lnk"
+    },
+    "12e2253e-a571-4ed2-8a13-cdd99a6328a5": {
+      "name": "MCreator",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\MCreator.lnk"
+    },
+    "f6aeaef3-77ac-4c8c-b271-667678af85d6": {
+      "name": "Medal",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Medal.lnk"
+    },
+    "a5673254-7b43-4b66-b2d2-723110208b7e": {
+      "name": "Paradox Launcher v2",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Paradox Launcher v2.lnk"
+    },
+    "30741d41-b753-4b59-8daa-c3b74857e581": {
+      "name": "PhpStorm",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\PhpStorm.lnk"
+    },
+    "3a8d8215-05ff-4066-b683-b61635eff19a": {
+      "name": "PyCharm Professional",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\PyCharm Professional.lnk"
+    },
+    "e0b23064-b98a-4ce7-942c-7164fb6f74bf": {
+      "name": "Rockstar Games Launcher",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Rockstar Games Launcher.lnk"
+    },
+    "ea4ba66f-7df7-4177-a5e2-b1f1841d97a2": {
+      "name": "Satisfactory Mod Manager",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Satisfactory Mod Manager.lnk"
+    },
+    "3a7f853d-1393-49b8-8e1a-8f7820645617": {
+      "name": "Super macro",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Super macro.lnk"
+    },
+    "873dab3f-c93c-443f-a6d1-2d369f46b48a": {
+      "name": "Ubisoft Connect",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Ubisoft Connect.lnk"
+    },
+    "b8c9cd71-1e9b-4f4e-91e4-3210ea47d8b3": {
+      "name": "WebStorm",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\WebStorm.lnk"
+    },
+    "cb9b4748-6cc4-46ed-a91d-7bd0f4cd9026": {
+      "name": "WeMod",
+      "icon": "📱",
+      "category": "0ba836cb-9e4b-457b-833c-3be076fba965",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\WeMod.lnk"
+    },
+    "d3de58c3-5e5d-4ccc-afa2-7668d189daa2": {
+      "name": "Dale & Dawson Stationery Supplies",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Autre\\Dale & Dawson Stationery Supplies.url"
+    },
+    "24482387-3ebe-46b4-8a8c-bf21a275bb05": {
+      "name": "Kerbal Space Program",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Autre\\Kerbal Space Program.url"
+    },
+    "4bd7175c-ef95-4190-89f4-200cfe512b14": {
+      "name": "The Escapists 2",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Autre\\The Escapists 2.url"
+    },
+    "605d4a31-7b79-4dce-9a47-9b147d8a2189": {
+      "name": "Outer Wilds",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Aventure\\Outer Wilds.url"
+    },
+    "0ee0977e-6a66-4f34-9842-684edaa0e528": {
+      "name": "American Truck Simulator",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Conduite\\American Truck Simulator.url"
+    },
+    "c080c3d0-deb8-4df2-83e3-794a981e01a0": {
+      "name": "City Transport Simulator Tram",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Conduite\\City Transport Simulator Tram.url"
+    },
+    "d1dc1cc9-754c-4854-9e96-98121ca9d038": {
+      "name": "Euro Truck Simulator 2",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Conduite\\Euro Truck Simulator 2.url"
+    },
+    "4968438f-1f24-4deb-aca7-0fab8b037b57": {
+      "name": "You Suck at Parking® - Complete Edition",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Conduite\\You Suck at Parking® - Complete Edition.url"
+    },
+    "9f3509c5-499a-4d7f-8224-9152a5ad8d69": {
+      "name": "ASTRONEER",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Farm\\ASTRONEER.url"
+    },
+    "8a36fbfc-53de-4b65-a056-b801311c490e": {
+      "name": "Satisfactory",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Farm\\Satisfactory.url"
+    },
+    "edf84395-b850-46f8-81e0-295c323010cc": {
+      "name": "Schedule I",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Farm\\Schedule I.url"
+    },
+    "2b08ad57-1a23-493e-8d37-4020b0648299": {
+      "name": "A Dance of Fire and Ice",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Rythme\\A Dance of Fire and Ice.url"
+    },
+    "2e834330-84f3-4ceb-8941-9dc05b41b9d1": {
+      "name": "Planet Coaster 2",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Simulation\\Planet Coaster 2.url"
+    },
+    "f1e8878c-3435-4ee4-98f3-b429c499a0e0": {
+      "name": "Supermarket Simulator",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Simulation\\Supermarket Simulator.url"
+    },
+    "b370b1f6-10ff-4275-8d78-d6421cb92063": {
+      "name": "Thief Simulator",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Simulation\\Thief Simulator.url"
+    },
+    "9958047c-15cf-4f7e-ac4a-271ebca48d0a": {
+      "name": "Business Tour - Online Multiplayer Board Game",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Société\\Business Tour - Online Multiplayer Board Game.url"
+    },
+    "7beb5673-63c4-4650-a4f1-6ab508dd8257": {
+      "name": "Escape Simulator",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Société\\Escape Simulator.url"
+    },
+    "08c19667-d072-4ab8-90d0-b9bd869119d9": {
+      "name": "Left 4 Dead 2",
+      "icon": "🎮",
+      "category": "714541bc-f3b9-4015-b584-fd83435ca224",
+      "shortcut_path": "C:\\Users\\SysyM\\Desktop\\Zombie\\Left 4 Dead 2.url"
+    }
+  }
+}
